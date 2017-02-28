@@ -1,6 +1,6 @@
 organization := "info.daviot"
 
-name := "solution"
+name := "quickstart"
 
 version := "0.1-SNAPSHOT"
 
@@ -13,5 +13,6 @@ scalacOptions ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "2.2.6" % Test
+  "org.scalatest" %% "scalatest" % "2.2.6" % Test,
+  "junit" % "junit" % "4.10" % Test
 )
