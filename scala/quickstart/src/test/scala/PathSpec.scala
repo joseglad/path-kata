@@ -22,9 +22,23 @@ class PathSpec extends FlatSpec with Matchers {
   //  \ /
   //   b
 
+  val path = Path(List(ac, cd, de))
+  val bigPath = Path(List(ac, cd, de, ab, bc))
+  val pathList = PathList(List(path, bigPath))
+
   "a segment" should "compute its distance" in {
     val distance = ac.distance
     distance shouldBe 20.0 +- 0.0001
+  }
+
+  "a path" should "compute its distance" in {
+    val distance = path.distance
+    distance shouldBe 40.0 +- 0.0001
+  }
+
+  "a path list" should "find its shortest path" in {
+    val shortestPath = pathList.shortestPath
+    Some(shortestPath) shouldBe Some(path)
   }
 
 }
