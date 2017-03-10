@@ -16,4 +16,6 @@ case class PathList(paths: List[Path]) {
     paths.filter(p => p.stops.contains(stop))
   def filter(paths: List[Path], stops: List[Point]): List[Path] =
     paths.filter(path => stops.forall(path.stops.contains))
+  def filterShortestPath(paths: List[Path], stops: List[Point]): Path =
+    filter(paths, stops).minBy(_.distance)
 }

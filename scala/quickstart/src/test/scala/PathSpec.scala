@@ -53,8 +53,13 @@ class PathSpec extends FlatSpec with Matchers {
 
   "a pathList" should "filter paths keeping only those which include a given list of stops" in {
     val paths = pathList.filter(List(path, bigPath), List(pb))
-    println(paths)
     paths shouldBe List(bigPath)
+  }
+
+  "a pathList" should "find the shortest path in a list of paths, which includes a given list of stops" in {
+    val pathAB = Path(List(ab))
+    val paths = pathList.filterShortestPath(List(path, bigPath, pathAB), List(pb))
+    paths shouldBe pathAB
   }
 
 }
